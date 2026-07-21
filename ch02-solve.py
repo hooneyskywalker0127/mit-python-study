@@ -67,9 +67,20 @@ else:
 # 5. 2보다 크고 1000보다 작은 prime들의 합을 출력하는 프로그램을 작성하라. (힌트: 3부터 999까지 홀수를 도는 for loop 안에, primality test를 하는 for loop를 중첩하면 된다.)
 
 
-sum_num = []
-for i in range(3,999,2):
-    sum_num.append(i)
+prime_sum = 0
+
+for num in range(3, 1000, 2):
+    is_prime = True  
+    
+    for i in range(2, num):
+        if num % i == 0:
+            is_prime = False  
+            break           
+            
+    if is_prime:
+        prime_sum += num
+
+print(f"2보다 크고 1000보다 작은 소수들의 합: {prime_sum}")
 
 print(sum(sum_num))
 
